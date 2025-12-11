@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="ko" xmlns:th="http://www.thymeleaf.org">
 <head th:replace="~{fragments/common :: htmlHead('멘토 등록')}">
@@ -27,7 +26,7 @@
 
         <div>
             <label for="specialty">전문 분야</label>
-            <select th:field="*{name}">
+            <select th:field="*{specialty}">
                 <option value="">선택하세요</option>
                 <option
                         th:each="sp : ${specialties}"
@@ -43,7 +42,9 @@
         <div>
             <label for="email">이메일</label>
             <!-- 알아서 ID/name -> field -->
-            <input type="email" th:field="*{email}" placeholder="email@example.com">
+            <!--                <input type="email" th:field="*{email}" placeholder="email@example.com">-->
+            <input th:field="*{email}" placeholder="email@example.com">
+            <!--                <input type="email" th:field="*{email}" placeholder="email@example.com">-->
 
             <span th:if="${#fields.hasErrors('email')}"
                   th:errors="*{email}"></span>
